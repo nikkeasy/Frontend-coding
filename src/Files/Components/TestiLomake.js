@@ -1,0 +1,92 @@
+import React, {useEffect, useState}  from 'react'; 
+
+
+function Lomake () {
+    //Tilamuuttujat ja niiden alustaminen
+     const [Henkilo, setValues] = useState({
+         nimi: '',
+         paiva: '',
+         ika: '', 
+         arvosana: ''
+     });
+
+     const [Virheilmo, setTila] = useState({Virheilmo: ''});
+ 
+     // Nämä voisivat olla myös vain yksi muuta funktio...
+     //Tilan muuttamisfunktio
+     const muutaNimi = (e) => {
+         setValues( {
+             ...Henkilo,
+             [e.target.name]: e.target.value
+         } );
+     }
+     const muutaPaiva = (e) => {
+         setValues( {
+             ...Henkilo,
+             [e.target.name]: e.target.value
+         } );
+     }
+
+     const muutaIka = (e) => {
+        setValues( {
+            ...Henkilo,
+            [e.target.name]: e.target.value
+        } );
+    }
+     const muutaArvosana = (e) => {
+         setValues( {
+             ...Henkilo,
+             [e.target.name]: e.target.value
+         } );
+     }
+    
+     // Funktio painikkeen painallukselle
+     const lisaaHenkilo = (e) => {
+        // Jotta default-toiminto submit ei käsittele tietoja kentistä
+         e.preventDefault();
+ 
+         if(Henkilo.nimi.length === 0 || Henkilo.paiva.length === 0 || Henkilo.arvosana.length === 0) {
+     
+             setTila({Virheilmo: 'Kaikissa kentissä pitää olla arvot!!'});
+
+         }
+              if(Henkilo.ika < 18) {
+                  setTila({Virheilmo: 'Oot liian nuori fäg :D '})
+              }    
+         
+         else {
+             setTila({Virheilmo: 'Henkilö on lisätty onnistuneesti'});
+         }
+     }
+ 
+ return (
+ 
+ <form>
+     <label htmlFor='nimi'>Nimi: </label>
+     <input type='text' name='nimi' value={ Henkilo.nimi }
+         onChange={ (e) => muutaNimi(e) } /><br />
+ 
+     <label htmlFor='paiva'>Päivä: </label>
+     <input type='text' name='paiva' value={ Henkilo.paiva } 
+         onChange={ (e) => muutaPaiva(e) }/><br />
+ 
+     <label htmlFor='ika'>Ika: </label>
+     <input type='text' name='ika' value={ Henkilo.ika }
+         onChange={ (e) => muutaIka(e) } /><br />
+
+    <label htmlFor='arvosana'>Arvosana: </label>
+     <input type='text' name='arvosana' value={ Henkilo.arvosana }
+         onChange={ (e) => muutaArvosana(e) } /><br />
+ 
+     <input type='submit' value='Lisää' onClick={ (e) => lisaaHenkilo(e) }/>
+     <p> { Virheilmo.Virheilmo } </p>
+ </form>
+ 
+     );
+ }
+ 
+ 
+ 
+ export default Lomake;
+ 
+
