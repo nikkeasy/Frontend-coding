@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   justify='flex-start'
   alignItems = 'flex-start'
   direction='row'>
-      <Grid item xs={4}> {/* Ilman kokomäärittelyä saa helposti keskelle.. Kokeile eri vaihtoehtoja */}
+      <Grid item md={3}> {/* Ilman kokomäärittelyä saa helposti keskelle.. Kokeile eri vaihtoehtoja */}
         <Paper className={classes.paper}>
         <h2> Work is under way....</h2>
         But to keep you happy.. 
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
         </Paper>
         </Grid>
 
-        <Grid item xs={4}> 
+        <Grid item md={3}> 
           <Paper className = {classes.paper}> 
           
           Soon this website will flourish with Beautiful material-ui...
@@ -71,33 +71,34 @@ const useStyles = makeStyles((theme) => ({
 
           </Paper>
         </Grid>
-        <Grid item xs={4}> 
+
+        <Grid item md={3}> 
           <Paper className = {classes.paper}> 
             I want this item to go to the center 
             If only that would be possible...
           </Paper>
           </Grid>
 
-          <Grid item xs={4}> 
+          <Grid item md={3}> 
           <Paper className = {classes.paper}> 
            But it is possible indeed. Just depends on the styling ;) 
           </Paper>
          </Grid>
 
-         <Grid item xs={4}> 
+         <Grid item md={3}> 
           <Paper className = {classes.paper}> 
           
           </Paper>
           </Grid>
 
-          <Grid item xs={4}> 
+          <Grid item md={3}>  
           <Paper className = {classes.paper}> 
          
           </Paper>
           </Grid>
+          </Grid>
 
-
-        </Grid>
+        
          </div>
       );
   }

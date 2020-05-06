@@ -28,6 +28,7 @@ import UnderConstruction from './UnderConstruction';
 import ContainerNumber1 from '../Material-Ui stuff/ContainerBasic'; 
 import HomePage from '../Material-Ui stuff/Homepage'; 
 import FetchLastFm from '../Components/fetchLastFm'; 
+import SongRequest from './SongRequest';
 
 
 
@@ -79,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
             { value === 0 &&    <HomePage /> }
             { value === 1 &&  <ContainerFixed /> }
             { value === 2 &&  <ContainerNumber1/>  }
-            { value === 3 &&  <TextFieldC/>}
+            { value === 3 &&  <SongRequest/>}
             { value === 4 &&  <FetchLastFm/>}
             { value === 5 && <TextAreaFile/>}
             

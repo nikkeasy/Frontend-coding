@@ -7,6 +7,7 @@ import ApplicationBar from './Files/Material-Ui stuff/Appbar'
 import FetchLastFm from './Files/Components/fetchLastFm';
 import Example from './Files/Components/fetchFail'; 
 import Lomake from './Files/Components/TestiLomake'; 
+import HaeBiisit from './Files/FrontBack/HaeBiisit';
 
 
 function App() {
