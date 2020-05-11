@@ -1,5 +1,4 @@
 import React from 'react'; 
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';  
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper';
@@ -8,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles ({ 
     root: {
             flexGrow: 1,
+            margin:"105px",
         },
         paper: {
             
@@ -17,7 +17,8 @@ const useStyles = makeStyles ({
     form: {
         padding: '35 20px', 
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-        height: '70px',
+        height: '120px',
+        width: '333px',
         resize: "none", 
         
         
@@ -25,7 +26,7 @@ const useStyles = makeStyles ({
     }
 })
 
-export default function TextAreaFile () { 
+export default function FeedBack () { 
     const classes = useStyles(); 
     return (
     <div className={classes.root}> 
@@ -34,7 +35,7 @@ export default function TextAreaFile () {
          direction="column"
          justify="flex-start"
          alignItems="center"> 
-    <Paper> <h2> Type your feedback here! </h2> </Paper>
+    <h2> Type your feedback below! </h2> 
         <Grid item sm={'6'}> 
             <form> 
             <textarea className={classes.form} type="text" name="name" /> 
@@ -43,7 +44,7 @@ export default function TextAreaFile () {
         </Grid>
   
         
-        <Grid item sm={'6'}> 
+        <Grid item sm> 
         
          <Button variant="contained" color="secondary"> Submit </Button>
          </Grid>

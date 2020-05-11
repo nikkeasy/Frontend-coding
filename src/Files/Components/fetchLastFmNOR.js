@@ -20,21 +20,22 @@ const useStyles = makeStyles({
         },
 
 })
-export default function FetchLastFm () {
+export default function FetchLastFmNOR () {
     const classes = useStyles();
     const [biisit, setBiisit ] = useState([]);
-   
+    const [artistit, setArtistit] = useState([])
     const [virhe, setVirhe] = useState('Loading da files...');
     const fetchUrl = async () => {
 
         try { 
     
-            const response = await fetch('http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=finland&limit=10&api_key=ab29089f40be1f28c5b34468b4afb05f&format=json');
+            const response = await fetch('http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=norway&limit=10&api_key=ab29089f40be1f28c5b34468b4afb05f&format=json');
             const json = await response.json();
              setVirhe ('');
              setBiisit(json.tracks.track);  
-          
-         
+             setArtistit(json.tracks);
+            // setArtist(json.tracks.track[0].artist); // Ei toimi.. sain aikaisemmin toimimaan mutta vahingossa poistui tiedosto ja tässä sitä nyt ollaan
+            // setArtist(json.tracks.track[0].artist);
            } catch (error) {
             setVirhe("Error while fetching data :( :( "); 
         }
@@ -56,10 +57,13 @@ export default function FetchLastFm () {
         avatar= {<Avatar> <MusicNoteIcon/> </Avatar>} /> 
 
        <CardContent> 
+      
       <Typography variant ='h6'> Biisin nimi: {fmdata.name} </Typography> 
+      <Typography> Artist: {fmdata.artist.name}   </Typography>
+      <Typography> URL: {fmdata.url} </Typography>
        <Typography color="secondary.main"> Listeners: {fmdata.listeners}</Typography>
-       <Typography> URL: {fmdata.url}   </Typography>
-       <Typography> Artist: {fmdata.artist.name}   </Typography>
+       
+       
        
        </CardContent>
        </Card>
@@ -75,7 +79,3 @@ export default function FetchLastFm () {
  )
 }
     
-    //API-KEY aa90ec56063b8a21e8c959047e6b9dd6
-//  { (Object.values(biisilista)).map (biisi => {
-//    return( <p> { biisi.name } </p>)
-
